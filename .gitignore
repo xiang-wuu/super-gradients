@@ -173,6 +173,10 @@ venv.bak/
 # mkdocs documentation
 /site
 
+runs
+
+weights
+
 # mypy
 .mypy_cache/
 .dmypy.json
