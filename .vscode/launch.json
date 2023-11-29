@@ -11,6 +11,15 @@
             "program": "train_qat.py",
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "name": "Python: export_qat",
+            "type": "python",
+            "request": "launch",
+            "program": "export_yolonas.py",
+            "args": ["-m", "yolo_nas_s", "-w", "/home/swap/Downloads/ckpt_best.pth", "--dynamic", "--simplify", "-n", "3"],
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }
