@@ -105,7 +105,7 @@ from super_gradients.common.factories.pre_launch_callbacks_factory import PreLau
 from super_gradients.training.params import TrainingParams
 from super_gradients.module_interfaces import ExportableObjectDetectionModel
 from super_gradients.conversion import ExportQuantizationMode
-
+import shutil
 logger = get_logger(__name__)
 
 
@@ -1597,6 +1597,12 @@ class Trainer:
                             "Test": self.test_monitored_values,
                         },
                     )
+                print("copying sv_checkpoints to g drive: "+self.checkpoints_dir_path)
+                dst = "/content/drive/MyDrive/"+self.checkpoints_dir_path
+                if os.path.exists(dst):
+                    shutil.rmtree(dst)
+                destination = shutil.copytree("/content/"+self.checkpoints_dir_path, dst)  
+                print("done copying sv_checkpoints to g drive: "+destination)
 
             # PHASE.AVERAGE_BEST_MODELS_VALIDATION_START
             self.phase_callback_handler.on_average_best_models_validation_start(context)
